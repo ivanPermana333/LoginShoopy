@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">LoginShoopy</string>
     <string name="server_client_id">52446465138-43p7o45jl5ju3bgpsrs4k6ruujlkna9l.apps.googleusercontent.com</string>
-    <string name="facebook_app_id">[1498246726984917]</string> <string name="fb_login_protocol_scheme">fb[1498246726984917]</string>
+    <string name="facebook_app_id">1498246726984917</string> <string name="fb_login_protocol_scheme">fb1498246726984917</string>
+
 </resources>

@@ -24,7 +24,6 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class AboutMe extends AppCompatActivity {
     public static final String GOOGLE_ACCOUNT = "google_account";
-
     private Button signOut;
     private GoogleSignInClient googleSignInClient;
     private CircleImageView circleImageView;
@@ -40,24 +39,13 @@ public class AboutMe extends AppCompatActivity {
                 .requestEmail()
                 .build();
         googleSignInClient = GoogleSignIn.getClient(this, gso);
-
-
-
         signOut.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-          /*
-          Sign-out is initiated by simply calling the googleSignInClient.signOut API. We add a
-          listener which will be invoked once the sign out is the successful
-           */
-
-
-
                 googleSignInClient.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-                        //On Succesfull signout we navigate the user back to LoginActivity
                         Intent intent=new Intent(AboutMe.this,MainActivity.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(intent);
