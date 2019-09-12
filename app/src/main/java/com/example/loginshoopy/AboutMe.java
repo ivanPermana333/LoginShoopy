@@ -4,8 +4,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -19,6 +22,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
+import java.time.Instant;
+
 import de.hdodenhof.circleimageview.CircleImageView;
 
 
@@ -27,11 +32,33 @@ public class AboutMe extends AppCompatActivity {
     private Button signOut;
     private GoogleSignInClient googleSignInClient;
     private CircleImageView circleImageView;
+    TextView nama;
+    TextView email;
+    ImageView logo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about_me);
+
+        nama = (TextView) findViewById(R.id.txtNAma);
+        email = (TextView) findViewById(R.id.txtEmail);
+        logo = (ImageView) findViewById(R.id.profile_image);
+
+        SharedPreferences mSettings = getApplicationContext().getSharedPreferences("Settings", Context.MODE_PRIVATE);
+        String cookieName = mSettings.getString("datanama", "datanama");
+        String cookieEmail = mSettings.getString("dataemail", "dataemail");
+        String cookiegambar = mSettings.getString("datagambar", "datagambar");
+        Log.d("datagambar", "onCreate: "+cookiegambar);
+        //set to UI
+        nama.setText(cookieName);
+        email.setText(cookieEmail);
+//        Glide.with(getApplicationContext())
+//                .load(cookiegambar)
+//                .centerCrop()
+//                .placeholder(R.mipmap.ic_launcher)
+//                .into(circleImageView);
+
 
         circleImageView = (CircleImageView)findViewById(R.id.profile_image);
         signOut=findViewById(R.id.sign_out);

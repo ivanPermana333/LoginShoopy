@@ -25,12 +25,22 @@
 
 
   <TextView
+      android:id="@+id/txtNAma"
       android:layout_marginTop="10dp"
       android:layout_width="162dp"
       android:layout_height="wrap_content"
       android:layout_gravity="center"
       android:text="Nama"
       android:textStyle="bold"/>
+  <TextView
+      android:id="@+id/txtEmail"
+      android:layout_marginTop="10dp"
+      android:layout_width="162dp"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center"
+      android:text="Email"
+      android:textStyle="bold"/>
+
 
 
   <Button
